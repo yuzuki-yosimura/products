@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+
+a {
+  text-decoration: none;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header {
+  width: 90%;
+  padding: 20px 0;
+  margin: 20 auto;
+  text-align: center;
+}
+/*headerタグ内のheadlineクラスにのみ反映される*/
+header.headline{
+  font-size: 32px;
+}
+
+.nav{
+  text-align: center;
+  padding: 15px 0;
+  margin: 0 auto;
+}
+
+.list-item{
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.main{
+  width: 800px;
+  height: 600px;
+  margin: 50px auto;
+}
+
+.line1{
+  width: 800px;
+  height: 200px;
+  background-color: purple;
+}
+
+.line2{
+  width: 800px;
+  height: 200px;
+  background-color: red;
+}
+
+.line3{
+  width: 800px;
+  height: 200px;
+  background-color: pink;
+}
+
+.a{
+  width: 200px;
+  height: 200px;
+  background-color: #e6ffe9;
+  float: left;
+}
+
+line1>b{
+  width: 200px;
+  height: 200px;
+  background-color: #cbffd3;
+  float: left;
+}
+
+.line1 c{
+  width: 200px;
+  height: 200px;
+  background-color: #aeffbd;
+  float: left;
+}
+
+.line1 d{
+  width: 200px;
+  height: 200px;
+  background-color: #93ffab;
+  float: left;
+}
