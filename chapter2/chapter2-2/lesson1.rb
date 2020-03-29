@@ -1,0 +1,2 @@
+#encoding: Shift_JIS
+puts "‚±‚ñ‚É‚¿‚Í!"

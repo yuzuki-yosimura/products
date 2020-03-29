@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.box{
+  width: 960px;
+  height: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.title{
+  font-size: 20px;
+}
+.content{
+  font-size: 10px;
+}
+
+.step{
+  background: orange;
+  color: white;
+  position: relative;
+  top: 0;
+  left: 0;
+  line-height: 1;
+}
+.box1{
+  width: 300px;
+  height: 400px;
+  float: left;
+  margin-right: 30px;
+  border: 2px solid gray;
+}
+
+.box1-container{
+  margin: 10px;
+}
+
+.box1-image{
+  width: 280px;
+  height: 200px;
+  background-image: url(img/flow01.png);
+  background-size: cover;
+}
+
+.box2{
+  width: 300px;
+  height: 400px;
+  float: left;
+  margin-right: 30px;
+  border: 2px solid gray;
+}
+
+.box2-container{
+  margin: 10px;
+}
+
+.box2-image{
+  width: 280px;
+  height: 200px;
+  background-image: url(img/flow02.png);
+  background-size: cover;
+}
+
+.box3{
+  width: 300px;
+  height: 400px;
+  float: left;
+  border: 2px solid gray;
+}
+
+.box3-container{
+  margin: 10px;
+}
+
+.box3-image{
+  width: 280px;
+  height: 200px;
+  background-image: url(img/flow03.png);
+  background-size: cover;
+}
