@@ -62,7 +62,13 @@ main{
   margin: 15px 0 5px;
 }
 
-@media screen and (max-width:726px) {
+@media screen and (max-width:768px) {
   .step-box{
     float: none;
+    margin: 20px auto;
+    width: 100%;
   }
+  main{
+    width: 90%;
+  }
+}
