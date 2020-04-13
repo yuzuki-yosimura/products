@@ -1,0 +1,1284 @@
+Started GET "/top" for 10.0.2.2 at 2020-04-06 06:10:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 6035ms (Views: 5998.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (26.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateLists (20200406061847)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200406061847_create_lists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200406061847"]]
+  ↳ bin/rails:9
+  [1m[35m (15.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (11.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-06 06:27:55.937619"], ["updated_at", "2020-04-06 06:27:55.937619"]]
+  ↳ bin/rails:9
+  [1m[35m (27.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddNameToLists (20200406062844)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (6.1ms)[0m  [1m[35mALTER TABLE "lists" ADD "name" varchar[0m
+  ↳ db/migrate/20200406062844_add_name_to_lists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200406062844"]]
+  ↳ bin/rails:9
+  [1m[35m (15.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveNameFromLists (20200406063105)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200406063105_remove_name_from_lists.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alists" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "body" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20200406063105_remove_name_from_lists.rb:3
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "alists" ("id","title","body","created_at","updated_at","name")
+                     SELECT "id","title","body","created_at","updated_at","name" FROM "lists"[0m
+  ↳ db/migrate/20200406063105_remove_name_from_lists.rb:3
+  [1m[35m (6.4ms)[0m  [1m[35mDROP TABLE "lists"[0m
+  ↳ db/migrate/20200406063105_remove_name_from_lists.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "lists" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "body" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200406063105_remove_name_from_lists.rb:3
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "lists" ("id","title","body","created_at","updated_at")
+                     SELECT "id","title","body","created_at","updated_at" FROM "alists"[0m
+  ↳ db/migrate/20200406063105_remove_name_from_lists.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "alists"[0m
+  ↳ db/migrate/20200406063105_remove_name_from_lists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200406063105"]]
+  ↳ bin/rails:9
+  [1m[35m (14.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/todolists/new" for 10.0.2.2 at 2020-04-06 07:15:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#new as HTML
+  Rendering todolists/new.html.erb within layouts/application
+  Rendered todolists/new.html.erb within layouts/application (66.0ms)
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 4.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `tile' for #<List:0x00005638b9ea2c00>
+Did you mean?  title):
+    4: <%= form_for(@list, url: '/todolists') do |f| %>
+    5: 
+    6: <h4>タイトル</h4>
+    7: <%= f.text_field :tile %>
+    8: 
+    9: <h4>本文</h4>
+   10: <%= f.text_area :body %>
+  
+app/views/todolists/new.html.erb:7:in `block in _app_views_todolists_new_html_erb___690606438964286924_47400819452600'
+app/views/todolists/new.html.erb:4:in `_app_views_todolists_new_html_erb___690606438964286924_47400819452600'
+Started GET "/todolists/new" for 10.0.2.2 at 2020-04-06 07:16:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#new as HTML
+  Rendering todolists/new.html.erb within layouts/application
+  Rendered todolists/new.html.erb within layouts/application (68.6ms)
+Completed 200 OK in 2073ms (Views: 2034.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todolists" for 10.0.2.2 at 2020-04-06 07:16:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iqVkHttVZ1WwsGxh1qD3KgBMqXQDRozR8W6icyM6xHtZasp/f4sEgSQP2AybXyvMW+BjTf2oVIJGwtZHLgG6TA==", "list"=>{"title"=>"サンプル", "body"=>"今日はいい天気ですね"}, "commit"=>"投稿"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[36mList Create (11.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "サンプル"], ["body", "今日はいい天気ですね"], ["created_at", "2020-04-06 07:16:51.141585"], ["updated_at", "2020-04-06 07:16:51.141585"]]
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[35m (21.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+Redirected to http://localhost:3000/top
+Completed 302 Found in 68ms (ActiveRecord: 33.4ms)
+
+
+Started GET "/top" for 10.0.2.2 at 2020-04-06 07:16:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 188ms (Views: 161.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todolists" for 10.0.2.2 at 2020-04-06 07:24:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#index as HTML
+  Rendering todolists/index.html.erb within layouts/application
+  Rendered todolists/index.html.erb within layouts/application (23.4ms)
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>投稿一覧</h1>
+    2:   <% @lists.each do |list| %>
+    3:     <p>タイトル</p>
+    4:     <span><%= list.title %></span>
+    5:   <% end %>  
+  
+app/views/todolists/index.html.erb:2:in `_app_views_todolists_index_html_erb__2097016232274395246_47444261595300'
+Started GET "/todolists" for 10.0.2.2 at 2020-04-06 07:30:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#index as HTML
+  Rendering todolists/index.html.erb within layouts/application
+  Rendered todolists/index.html.erb within layouts/application (17.7ms)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>投稿一覧</h1>
+    2:   <% @lists.each do |list| %>
+    3:     <p>タイトル</p>
+    4:     <span><%= list.title %></span>
+    5:   <% end %>
+  
+app/views/todolists/index.html.erb:2:in `_app_views_todolists_index_html_erb__2097016232274395246_69980217533040'
+Started GET "/todolists" for 10.0.2.2 at 2020-04-06 07:32:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#index as HTML
+  Rendering todolists/index.html.erb within layouts/application
+  Rendered todolists/index.html.erb within layouts/application (18.5ms)
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>投稿一覧</h1>
+    2:   <% @lists.each do |list| %>
+    3:     <p>タイトル</p>
+    4:     <span><%= list.title %></span>
+    5:   <% end %>
+  
+app/views/todolists/index.html.erb:2:in `_app_views_todolists_index_html_erb__2097016232274395246_47444253013880'
+Started GET "/todolists" for 10.0.2.2 at 2020-04-06 07:32:42 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#index as HTML
+  Rendering todolists/index.html.erb within layouts/application
+  [1m[36mList Load (2.0ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/todolists/index.html.erb:2
+  Rendered todolists/index.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 924ms (Views: 877.0ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/todolists/1" for 10.0.2.2 at 2020-04-06 07:40:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (1.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 877ms (Views: 782.6ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/todolists" for 10.0.2.2 at 2020-04-06 07:43:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#index as HTML
+  Rendering todolists/index.html.erb within layouts/application
+  [1m[36mList Load (1.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/todolists/index.html.erb:2
+  Rendered todolists/index.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 939ms (Views: 896.9ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/todolists/new" for 10.0.2.2 at 2020-04-06 07:51:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#new as HTML
+  Rendering todolists/new.html.erb within layouts/application
+  Rendered todolists/new.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 1043ms (Views: 973.1ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/todolists" for 10.0.2.2 at 2020-04-06 07:52:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ViUfk6KJf6M1O3PmmxLYWN9Hm45OYIk+urLDvWCya5qF6rHyBlccd6GEx4vW7QS+hOtRt7COUW0NHreJbYkVrQ==", "list"=>{"title"=>"投稿すると", "body"=>"詳細ページに飛ぶ\r\n"}, "commit"=>"投稿"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[36mList Create (15.9ms)[0m  [1m[32mINSERT INTO "lists" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "投稿すると"], ["body", "詳細ページに飛ぶ\r\n"], ["created_at", "2020-04-06 07:52:05.752241"], ["updated_at", "2020-04-06 07:52:05.752241"]]
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[35m (17.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+Redirected to http://localhost:3000/todolists/2
+Completed 302 Found in 55ms (ActiveRecord: 33.4ms)
+
+
+Started GET "/todolists/2" for 10.0.2.2 at 2020-04-06 07:52:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 211ms (Views: 176.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/todolists/1" for 10.0.2.2 at 2020-04-07 09:05:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (1.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 1536ms (Views: 1442.1ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/todolists/1/edit" for 10.0.2.2 at 2020-04-07 09:05:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (1.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:22
+  Rendering todolists/edit.html.erb within layouts/application
+  Rendered todolists/edit.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 197ms (Views: 166.0ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/todolists/1" for 10.0.2.2 at 2020-04-07 09:05:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2vkVKVRJ7q2tBJFZaKjAuIZT4bt4s6WzQket0oY4SMQmzghlNZIfi3B50j6gIjUqRvcTs+dT34qjv2TnVxPCDQ==", "list"=>{"title"=>"サンプル", "body"=>"今日はいい天気ですね"}, "commit"=>"保存", "id"=>"1"}
+  [1m[36mList Load (1.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:26
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:27
+Redirected to http://localhost:3000/todolists/1
+Completed 302 Found in 19ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/todolists/1" for 10.0.2.2 at 2020-04-07 09:05:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (1.8ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 175ms (Views: 140.9ms | ActiveRecord: 1.8ms)
+
+
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddImageIdToLists (20200407093815)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (16.2ms)[0m  [1m[35mALTER TABLE "lists" ADD "image_id" varchar[0m
+  ↳ db/migrate/20200407093815_add_image_id_to_lists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (3.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200407093815"]]
+  ↳ bin/rails:9
+  [1m[35m (13.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (4.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/todolists/1" for 10.0.2.2 at 2020-04-07 09:47:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (3.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 2648ms (Views: 2550.3ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/todolists/1/edit" for 10.0.2.2 at 2020-04-07 09:47:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (2.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:22
+  Rendering todolists/edit.html.erb within layouts/application
+  Rendered todolists/edit.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 246ms (Views: 212.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/todolists/new" for 10.0.2.2 at 2020-04-07 09:48:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#new as HTML
+  Rendering todolists/new.html.erb within layouts/application
+  Rendered todolists/new.html.erb within layouts/application (78.7ms)
+Completed 200 OK in 355ms (Views: 325.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todolists" for 10.0.2.2 at 2020-04-07 09:48:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mwkEslRHZJwK0Zm9Q9l8u5nQt/KheWRIYTYUOV1+4N+z8ZVE+YG0DaOW1lVn8rl8mL9vEcnq51g3JymExtdWTg==", "list"=>{"title"=>"画像投稿", "body"=>"はまやらわ", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fa394093de8 @tempfile=#<Tempfile:/tmp/RackMultipart20200407-4274-132uezu.png>, @original_filename="rails.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"list[image]\"; filename=\"rails.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"投稿"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[36mList Create (8.0ms)[0m  [1m[32mINSERT INTO "lists" ("title", "body", "created_at", "updated_at", "image_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "画像投稿"], ["body", "はまやらわ"], ["created_at", "2020-04-07 09:48:46.586449"], ["updated_at", "2020-04-07 09:48:46.586449"], ["image_id", "8ecebff9c15d202474c47e9f54398c156a1cf5c9a554a4b9424b9519c8e9"]]
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[35m (20.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+Redirected to http://localhost:3000/todolists/3
+Completed 302 Found in 70ms (ActiveRecord: 29.0ms)
+
+
+Started GET "/todolists/3" for 10.0.2.2 at 2020-04-07 09:48:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mList Load (2.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (28.1ms)
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 2.3ms)
+
+
+  
+ActionView::Template::Error (Refile.secret_key was not set.
+
+Please add the following to your Refile configuration and restart your application:
+
+```
+Refile.secret_key = 'b720310852d16a89ddb5a5b86bb54b559e31fa1d53299f7d6613bc3125afec8699a329fb94a8e77f41616b5597ec8fb74a0339ce9bb8bd4d3b033ec70035887d'
+```
+
+):
+    3: <h2>本文</h2>
+    4: <p><%= @list.body %></p>
+    5: <h2>画像</h2>:
+    6: <%= attachment_image_tag @list, :image, :fill, 300, 300, format: 'jpeg' %>
+    7: 
+    8: <%= link_to "編集", edit_todolist_path(@list.id) %>
+  
+app/views/todolists/show.html.erb:6:in `_app_views_todolists_show_html_erb__3394252995067604063_70170270223880'
+Started GET "/todolists/new" for 10.0.2.2 at 2020-04-07 09:51:42 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#new as HTML
+  Rendering todolists/new.html.erb within layouts/application
+  Rendered todolists/new.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 925ms (Views: 832.0ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/todolists" for 10.0.2.2 at 2020-04-07 09:51:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"guzIbRQl4CVHcfdZ0QUGXqQIcESb7gF5FQl55/1uz5OqFFmbueMwtO42uLH1LsOZpWeop/N9gmlDGERaZsd5Ag==", "list"=>{"title"=>"画像投稿", "body"=>"はまやらわ", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f37680921e8 @tempfile=#<Tempfile:/tmp/RackMultipart20200407-4354-199da4n.png>, @original_filename="rails.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"list[image]\"; filename=\"rails.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"投稿"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[36mList Create (8.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "body", "created_at", "updated_at", "image_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "画像投稿"], ["body", "はまやらわ"], ["created_at", "2020-04-07 09:51:57.202021"], ["updated_at", "2020-04-07 09:51:57.202021"], ["image_id", "90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1"]]
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[35m (17.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+Redirected to http://localhost:3000/todolists/4
+Completed 302 Found in 91ms (ActiveRecord: 25.8ms)
+
+
+Started GET "/todolists/4" for 10.0.2.2 at 2020-04-07 09:51:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mList Load (1.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 243ms (Views: 171.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/attachments/66d6166f0271610dbc254d7f7360a1d0b10e7973/store/fill/300/300/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1/image.jpeg" for 10.0.2.2 at 2020-04-07 09:51:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: Error -> You must have ImageMagick or GraphicsMagick installed
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/configuration.rb:147:in `cli'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick.rb:38:in `imagemagick7?'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:133:in `executable'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:108:in `command'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:90:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:38:in `new'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/image.rb:419:in `format'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/refile-mini_magick-0.2.0/lib/refile/mini_magick.rb:134:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/bundler/gems/refile-46b4178654e6/lib/refile/app.rb:57:in `block in <class:App>'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `block in compile!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (3 levels) in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1006:in `route_eval'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (2 levels) in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1035:in `block in process_route'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `process_route'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:985:in `block in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `each'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1098:in `block in dispatch!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1095:in `dispatch!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `block in call!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `call!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:908:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/bundler/gems/refile-46b4178654e6/lib/refile/custom_logger.rb:16:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/xss_header.rb:18:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/path_traversal.rb:16:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/json_csrf.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/frame_options.rb:31:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/null_logger.rb:11:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/head.rb:12:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:194:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1951:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/mapper.rb:19:in `block in <class:Constraints>'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/mapper.rb:48:in `serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:35:in `each'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:35:in `serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/route_set.rb:840:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/tempfile_reaper.rb:15:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/etag.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/conditional_get.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/head.rb:12:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/session/abstract/id.rb:266:in `context'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/session/abstract/id.rb:260:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/cookies.rb:670:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/migration.rb:559:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:98:in `run_callbacks'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:135:in `call_app'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:22:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:38:in `call_app'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:26:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/method_override.rb:24:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/runtime.rb:22:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/static.rb:127:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/sendfile.rb:110:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/engine.rb:524:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/configuration.rb:227:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:675:in `handle_request'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:476:in `process_client'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:334:in `block in run'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Refile::App: [2020-04-07 09:51:57 +0000] GET "/66d6166f0271610dbc254d7f7360a1d0b10e7973/store/fill/300/300/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1/image.jpeg" 500 191.7ms
+
+Started GET "/todolists/4/edit" for 10.0.2.2 at 2020-04-07 09:52:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mList Load (2.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:22
+  Rendering todolists/edit.html.erb within layouts/application
+  Rendered todolists/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 163ms (Views: 141.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/attachments/66d6166f0271610dbc254d7f7360a1d0b10e7973/store/fill/300/300/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1/image.jpeg" for 10.0.2.2 at 2020-04-07 09:52:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: Error -> You must have ImageMagick or GraphicsMagick installed
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/configuration.rb:147:in `cli'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick.rb:38:in `imagemagick7?'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:133:in `executable'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:108:in `command'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:90:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:38:in `new'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/image.rb:419:in `format'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/refile-mini_magick-0.2.0/lib/refile/mini_magick.rb:134:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/bundler/gems/refile-46b4178654e6/lib/refile/app.rb:57:in `block in <class:App>'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `block in compile!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (3 levels) in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1006:in `route_eval'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (2 levels) in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1035:in `block in process_route'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `process_route'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:985:in `block in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `each'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1098:in `block in dispatch!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1095:in `dispatch!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `block in call!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `call!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:908:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/bundler/gems/refile-46b4178654e6/lib/refile/custom_logger.rb:16:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/xss_header.rb:18:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/path_traversal.rb:16:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/json_csrf.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/frame_options.rb:31:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/null_logger.rb:11:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/head.rb:12:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:194:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1951:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/mapper.rb:19:in `block in <class:Constraints>'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/mapper.rb:48:in `serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:35:in `each'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:35:in `serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/route_set.rb:840:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/tempfile_reaper.rb:15:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/etag.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/conditional_get.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/head.rb:12:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/session/abstract/id.rb:266:in `context'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/session/abstract/id.rb:260:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/cookies.rb:670:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/migration.rb:559:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:98:in `run_callbacks'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:135:in `call_app'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:22:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:38:in `call_app'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:26:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/method_override.rb:24:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/runtime.rb:22:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/static.rb:127:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/sendfile.rb:110:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/engine.rb:524:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/configuration.rb:227:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:675:in `handle_request'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:476:in `process_client'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:334:in `block in run'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Refile::App: [2020-04-07 09:52:01 +0000] GET "/66d6166f0271610dbc254d7f7360a1d0b10e7973/store/fill/300/300/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1/image.jpeg" 500 130.5ms
+
+Started GET "/attachments/66d6166f0271610dbc254d7f7360a1d0b10e7973/store/fill/300/300/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1/image.jpeg" for 10.0.2.2 at 2020-04-07 09:52:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: Error -> You must have ImageMagick or GraphicsMagick installed
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/configuration.rb:147:in `cli'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick.rb:38:in `imagemagick7?'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:133:in `executable'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:108:in `command'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:90:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:38:in `new'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/image.rb:419:in `format'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/refile-mini_magick-0.2.0/lib/refile/mini_magick.rb:134:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/bundler/gems/refile-46b4178654e6/lib/refile/app.rb:57:in `block in <class:App>'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `block in compile!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (3 levels) in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1006:in `route_eval'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (2 levels) in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1035:in `block in process_route'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `process_route'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:985:in `block in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `each'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1098:in `block in dispatch!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1095:in `dispatch!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `block in call!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `call!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:908:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/bundler/gems/refile-46b4178654e6/lib/refile/custom_logger.rb:16:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/xss_header.rb:18:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/path_traversal.rb:16:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/json_csrf.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/frame_options.rb:31:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/null_logger.rb:11:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/head.rb:12:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:194:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1951:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/mapper.rb:19:in `block in <class:Constraints>'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/mapper.rb:48:in `serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:35:in `each'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:35:in `serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/route_set.rb:840:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/tempfile_reaper.rb:15:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/etag.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/conditional_get.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/head.rb:12:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/session/abstract/id.rb:266:in `context'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/session/abstract/id.rb:260:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/cookies.rb:670:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/migration.rb:559:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:98:in `run_callbacks'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:135:in `call_app'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:22:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:38:in `call_app'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:26:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/method_override.rb:24:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/runtime.rb:22:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/static.rb:127:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/sendfile.rb:110:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/engine.rb:524:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/configuration.rb:227:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:675:in `handle_request'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:476:in `process_client'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:334:in `block in run'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Refile::App: [2020-04-07 09:52:04 +0000] GET "/66d6166f0271610dbc254d7f7360a1d0b10e7973/store/fill/300/300/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1/image.jpeg" 500 116.4ms
+
+Started GET "/todolists/new" for 10.0.2.2 at 2020-04-07 09:53:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#new as HTML
+  Rendering todolists/new.html.erb within layouts/application
+  Rendered todolists/new.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 860ms (Views: 783.0ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/todolists" for 10.0.2.2 at 2020-04-07 09:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dkITrAHTSEz01oLLt3hGibKQNbpvXPz6iJqm84ZqQdheuoJarBWY3V2RzSOTU4NOs//tWQfPf+rei5tOHcP3SQ==", "list"=>{"title"=>"画像投稿", "body"=>"はまやらわ", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f1fbc0ed2f0 @tempfile=#<Tempfile:/tmp/RackMultipart20200407-4402-kebu85.png>, @original_filename="rails.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"list[image]\"; filename=\"rails.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"投稿"}
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[36mList Create (36.7ms)[0m  [1m[32mINSERT INTO "lists" ("title", "body", "created_at", "updated_at", "image_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "画像投稿"], ["body", "はまやらわ"], ["created_at", "2020-04-07 09:54:14.515747"], ["updated_at", "2020-04-07 09:54:14.515747"], ["image_id", "d1aedd02e1cee29382f1bbae4191abbc7f7e2ddb2eef713cfdc6a9d3e875"]]
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[35m (22.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+Redirected to http://localhost:3000/todolists/5
+Completed 302 Found in 130ms (ActiveRecord: 60.2ms)
+
+
+Started GET "/todolists/5" for 10.0.2.2 at 2020-04-07 09:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mList Load (2.6ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 211ms (Views: 174.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/attachments/a88db6921c02b2ecd51b6aba71c0e7911d561d8e/store/fill/300/300/d1aedd02e1cee29382f1bbae4191abbc7f7e2ddb2eef713cfdc6a9d3e875/image.jpeg" for 10.0.2.2 at 2020-04-07 09:54:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: Error -> You must have ImageMagick or GraphicsMagick installed
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/configuration.rb:147:in `cli'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick.rb:38:in `imagemagick7?'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:133:in `executable'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:108:in `command'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:90:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/tool.rb:38:in `new'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/mini_magick-4.10.1/lib/mini_magick/image.rb:419:in `format'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/refile-mini_magick-0.2.0/lib/refile/mini_magick.rb:134:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/bundler/gems/refile-46b4178654e6/lib/refile/app.rb:57:in `block in <class:App>'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `block in compile!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (3 levels) in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1006:in `route_eval'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (2 levels) in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1035:in `block in process_route'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `process_route'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:985:in `block in route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `each'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `route!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1098:in `block in dispatch!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1095:in `dispatch!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `block in call!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `call!'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:908:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/bundler/gems/refile-46b4178654e6/lib/refile/custom_logger.rb:16:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/xss_header.rb:18:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/path_traversal.rb:16:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/json_csrf.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-protection-2.0.8.1/lib/rack/protection/frame_options.rb:31:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/null_logger.rb:11:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/head.rb:12:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:194:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1951:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/mapper.rb:19:in `block in <class:Constraints>'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/mapper.rb:48:in `serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:35:in `each'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/journey/router.rb:35:in `serve'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/routing/route_set.rb:840:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/tempfile_reaper.rb:15:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/etag.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/conditional_get.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/head.rb:12:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/session/abstract/id.rb:266:in `context'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/session/abstract/id.rb:260:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/cookies.rb:670:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/migration.rb:559:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:98:in `run_callbacks'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:135:in `call_app'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:22:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `catch'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:38:in `call_app'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:26:in `block in call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/rack/logger.rb:26:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/method_override.rb:24:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/runtime.rb:22:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activesupport-5.2.4.2/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/actionpack-5.2.4.2/lib/action_dispatch/middleware/static.rb:127:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/rack-2.2.2/lib/rack/sendfile.rb:110:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/railties-5.2.4.2/lib/rails/engine.rb:524:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/configuration.rb:227:in `call'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:675:in `handle_request'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:476:in `process_client'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/server.rb:334:in `block in run'
+Refile::App: /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/puma-3.12.4/lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Refile::App: [2020-04-07 09:54:15 +0000] GET "/a88db6921c02b2ecd51b6aba71c0e7911d561d8e/store/fill/300/300/d1aedd02e1cee29382f1bbae4191abbc7f7e2ddb2eef713cfdc6a9d3e875/image.jpeg" 500 186.8ms
+
+Started GET "/todolists/index" for 10.0.2.2 at 2020-04-07 10:01:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mList Load (1.6ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+Completed 404 Not Found in 62ms (ActiveRecord: 9.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=index):
+  
+app/controllers/todolists_controller.rb:18:in `show'
+Started GET "/todolists/new" for 10.0.2.2 at 2020-04-07 10:04:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#new as HTML
+  Rendering todolists/new.html.erb within layouts/application
+  Rendered todolists/new.html.erb within layouts/application (102.1ms)
+Completed 200 OK in 969ms (Views: 909.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todolists/new" for 10.0.2.2 at 2020-04-07 10:04:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#new as HTML
+  Rendering todolists/new.html.erb within layouts/application
+  Rendered todolists/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 200ms (Views: 178.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todolists" for 10.0.2.2 at 2020-04-07 10:04:48 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r3ecy7Sd8msZEOfuBhBV8dIDuPG9I0+EGpzfGD5fMviHjw09GVsi+rBXqAYiO5A202xgEtWwzJRMjeKlpfaEaQ==", "list"=>{"title"=>"画像投稿", "body"=>"はまやらわ", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fc3ec9c21d0 @tempfile=#<Tempfile:/tmp/RackMultipart20200407-10473-1rxm7ca.png>, @original_filename="rails.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"list[image]\"; filename=\"rails.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"投稿"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[36mList Create (13.7ms)[0m  [1m[32mINSERT INTO "lists" ("title", "body", "created_at", "updated_at", "image_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "画像投稿"], ["body", "はまやらわ"], ["created_at", "2020-04-07 10:04:48.679408"], ["updated_at", "2020-04-07 10:04:48.679408"], ["image_id", "ed1981ac58dffd3eb79dd21ee01d0c443ee2fcb8198a9d4418cd3e4055d7"]]
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[35m (17.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+Redirected to http://localhost:3000/todolists/6
+Completed 302 Found in 75ms (ActiveRecord: 31.4ms)
+
+
+Started GET "/todolists/6" for 10.0.2.2 at 2020-04-07 10:04:48 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mList Load (2.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 248ms (Views: 209.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/attachments/a3ad09b9d6b9e5cb7be70f04f5f15d0f19c47a85/store/fill/300/300/ed1981ac58dffd3eb79dd21ee01d0c443ee2fcb8198a9d4418cd3e4055d7/image.jpeg" for 10.0.2.2 at 2020-04-07 10:04:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: [2020-04-07 10:04:49 +0000] GET "/a3ad09b9d6b9e5cb7be70f04f5f15d0f19c47a85/store/fill/300/300/ed1981ac58dffd3eb79dd21ee01d0c443ee2fcb8198a9d4418cd3e4055d7/image.jpeg" 200 191.7ms
+
+Started GET "/todolists/6/edit" for 10.0.2.2 at 2020-04-07 10:04:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mList Load (3.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:22
+  Rendering todolists/edit.html.erb within layouts/application
+  Rendered todolists/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 173ms (Views: 153.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/todolists/index" for 10.0.2.2 at 2020-04-07 10:05:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mList Load (2.6ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+Completed 404 Not Found in 9ms (ActiveRecord: 2.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=index):
+  
+app/controllers/todolists_controller.rb:18:in `show'
+Started GET "/todolists/index" for 10.0.2.2 at 2020-04-07 10:05:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mList Load (2.0ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+Completed 404 Not Found in 7ms (ActiveRecord: 2.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=index):
+  
+app/controllers/todolists_controller.rb:18:in `show'
+Started GET "/todolists/index" for 10.0.2.2 at 2020-04-07 10:05:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mList Load (4.0ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:18
+Completed 404 Not Found in 15ms (ActiveRecord: 4.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=index):
+  
+app/controllers/todolists_controller.rb:18:in `show'
+Started GET "/todolists/1" for 10.0.2.2 at 2020-04-07 10:12:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (2.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 949ms (Views: 878.0ms | ActiveRecord: 5.1ms)
+
+
+Started DELETE "/todolists/1" for 10.0.2.2 at 2020-04-07 10:12:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hW2otgicC1BGGybcz5iOIzhdNPWdZDAHN0vr821G+iatlTlApVrbwe9caTTrs0vkOTLsFvX3sxdhWtZO9u9Mtw==", "id"=>"1"}
+  [1m[36mList Load (3.7ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[36mList Destroy (15.9ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[35m (25.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+Redirected to http://localhost:3000/todolists/1
+Completed 302 Found in 81ms (ActiveRecord: 45.5ms)
+
+
+Started GET "/todolists/1" for 10.0.2.2 at 2020-04-07 10:12:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (4.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+Completed 404 Not Found in 16ms (ActiveRecord: 4.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=1):
+  
+app/controllers/todolists_controller.rb:17:in `show'
+Started GET "/todolists/new" for 10.0.2.2 at 2020-04-07 10:13:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#new as HTML
+  Rendering todolists/new.html.erb within layouts/application
+  Rendered todolists/new.html.erb within layouts/application (42.1ms)
+Completed 200 OK in 198ms (Views: 185.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todolists" for 10.0.2.2 at 2020-04-07 10:14:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z3/ya9FvT/yT19Sw/9DN2XZ7agwJOE3+OOj0fcj/5eDnh2OdfKmfbTqQm1jb+wgedxSy72Grzu5u+cnAU1ZTcQ==", "list"=>{"title"=>"サンプル", "body"=>"ありがとうございます。", "image"=>"{}"}, "commit"=>"投稿"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[36mList Create (15.8ms)[0m  [1m[32mINSERT INTO "lists" ("title", "body", "created_at", "updated_at", "image_id") VALUES (?, ?, ?, ?, ?)[0m  [["title", "サンプル"], ["body", "ありがとうございます。"], ["created_at", "2020-04-07 10:14:09.967396"], ["updated_at", "2020-04-07 10:14:09.967396"], ["image_id", nil]]
+  ↳ app/controllers/todolists_controller.rb:8
+  [1m[35m (17.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:8
+Redirected to http://localhost:3000/todolists/7
+Completed 302 Found in 54ms (ActiveRecord: 33.1ms)
+
+
+Started GET "/todolists/7" for 10.0.2.2 at 2020-04-07 10:14:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mList Load (1.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 217ms (Views: 196.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/todolists/1" for 10.0.2.2 at 2020-04-07 10:14:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (2.7ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+Completed 404 Not Found in 19ms (ActiveRecord: 2.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=1):
+  
+app/controllers/todolists_controller.rb:17:in `show'
+Started GET "/todolists/2" for 10.0.2.2 at 2020-04-07 10:14:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (3.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 314ms (Views: 272.4ms | ActiveRecord: 3.3ms)
+
+
+Started DELETE "/todolists/2" for 10.0.2.2 at 2020-04-07 10:14:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6A/Vm8UiANP8llmT4wgcufPYpw3SCJEZiZrVHcee7LzA90RtaOTQQlXRFnvHI9l+8rd/7rqbEgnfi+igXDdaLQ==", "id"=>"2"}
+  [1m[36mList Load (3.9ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[36mList Destroy (16.7ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[35m (23.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+Redirected to http://localhost:3000/todolists/2
+Completed 302 Found in 80ms (ActiveRecord: 44.5ms)
+
+
+Started GET "/todolists/2" for 10.0.2.2 at 2020-04-07 10:14:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (6.9ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+Completed 404 Not Found in 15ms (ActiveRecord: 6.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=2):
+  
+app/controllers/todolists_controller.rb:17:in `show'
+Started DELETE "/todolists/7" for 10.0.2.2 at 2020-04-07 10:15:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"e66GDLxvsO2fHQMYjrYnBsAKetGKWH+htkJ7IIEMRi1TVhf6EalgfDZaTPCqneLBwWWiMuLL/LHgU0adGqXwvA==", "id"=>"7"}
+  [1m[36mList Load (1.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[36mList Destroy (18.7ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[35m (16.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+Redirected to http://localhost:3000/todolists/7
+Completed 302 Found in 70ms (ActiveRecord: 37.0ms)
+
+
+Started GET "/todolists/7" for 10.0.2.2 at 2020-04-07 10:15:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mList Load (3.0ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+Completed 404 Not Found in 16ms (ActiveRecord: 3.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=7):
+  
+app/controllers/todolists_controller.rb:17:in `show'
+Started GET "/todolists/1" for 10.0.2.2 at 2020-04-07 10:15:40 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (2.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+Completed 404 Not Found in 9ms (ActiveRecord: 2.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=1):
+  
+app/controllers/todolists_controller.rb:17:in `show'
+Started GET "/todolists/3" for 10.0.2.2 at 2020-04-07 10:15:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mList Load (1.7ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 180ms (Views: 148.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/attachments/d4631f7b14f93279a23d3fcdeff079d2fdc0d8f5/store/fill/300/300/8ecebff9c15d202474c47e9f54398c156a1cf5c9a554a4b9424b9519c8e9/image.jpeg" for 10.0.2.2 at 2020-04-07 10:15:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: [2020-04-07 10:15:50 +0000] GET "/d4631f7b14f93279a23d3fcdeff079d2fdc0d8f5/store/fill/300/300/8ecebff9c15d202474c47e9f54398c156a1cf5c9a554a4b9424b9519c8e9/image.jpeg" 200 220.7ms
+
+Started GET "/todolists/3" for 10.0.2.2 at 2020-04-07 10:16:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mList Load (1.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 1041ms (Views: 971.4ms | ActiveRecord: 4.8ms)
+
+
+Started DELETE "/todolists/3" for 10.0.2.2 at 2020-04-07 10:16:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zizpW4x5+deiddvgR9ee4wyzOhfocT8llCC/1zctcAzm1HitIb8pRgsylAhj/FskDdzi9IDivDXCMYJqrITGnQ==", "id"=>"3"}
+  [1m[36mList Load (4.0ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[36mList Destroy (17.0ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[35m (30.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+Redirected to http://localhost:3000/todolists
+Completed 302 Found in 93ms (ActiveRecord: 51.2ms)
+
+
+Started GET "/todolists" for 10.0.2.2 at 2020-04-07 10:16:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#index as HTML
+  Rendering todolists/index.html.erb within layouts/application
+  [1m[36mList Load (1.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/todolists/index.html.erb:2
+  Rendered todolists/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 244ms (Views: 229.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/attachments/a9373a04525080c99e708d39a320a674f3ea6c37/store/fill/100/100/d1aedd02e1cee29382f1bbae4191abbc7f7e2ddb2eef713cfdc6a9d3e875/image.jpeg" for 10.0.2.2 at 2020-04-07 10:16:23 +0000
+Started GET "/attachments/7239b9e070358d7b4bd18cdc38f481b301603755/store/fill/100/100/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1/image.jpeg" for 10.0.2.2 at 2020-04-07 10:16:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/attachments/aea153ee0dda76bc27af20ceadc364952d05877b/store/fill/100/100/ed1981ac58dffd3eb79dd21ee01d0c443ee2fcb8198a9d4418cd3e4055d7/image.jpeg" for 10.0.2.2 at 2020-04-07 10:16:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: [2020-04-07 10:16:23 +0000] GET "/7239b9e070358d7b4bd18cdc38f481b301603755/store/fill/100/100/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1/image.jpeg" 200 448.7ms
+
+Refile::App: [2020-04-07 10:16:23 +0000] GET "/a9373a04525080c99e708d39a320a674f3ea6c37/store/fill/100/100/d1aedd02e1cee29382f1bbae4191abbc7f7e2ddb2eef713cfdc6a9d3e875/image.jpeg" 200 449.1ms
+
+Refile::App: [2020-04-07 10:16:23 +0000] GET "/aea153ee0dda76bc27af20ceadc364952d05877b/store/fill/100/100/ed1981ac58dffd3eb79dd21ee01d0c443ee2fcb8198a9d4418cd3e4055d7/image.jpeg" 200 363.2ms
+
+Started GET "/todolists/4" for 10.0.2.2 at 2020-04-07 10:16:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mList Load (1.8ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 177ms (Views: 155.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/attachments/66d6166f0271610dbc254d7f7360a1d0b10e7973/store/fill/300/300/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1/image.jpeg" for 10.0.2.2 at 2020-04-07 10:16:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: [2020-04-07 10:16:29 +0000] GET "/66d6166f0271610dbc254d7f7360a1d0b10e7973/store/fill/300/300/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1/image.jpeg" 200 119.6ms
+
+Started DELETE "/todolists/4" for 10.0.2.2 at 2020-04-07 10:16:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KtmmTJOvDOo5IrxjIX0wzT+Zs9paJbLJm37kubkiIkcCITe6Pmnce5Bl84sFVvUKPvZrOTK2MdnNb9kEIouU1g==", "id"=>"4"}
+  [1m[36mList Load (3.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[36mList Destroy (16.4ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[35m (24.6ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 44.6ms)
+
+
+  
+Errno::ETXTBSY (Text file busy @ apply2files - /vagrant/aiueo/tmp/uploads/store/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1):
+  
+app/controllers/todolists_controller.rb:32:in `destroy'
+Started GET "/todolists/1" for 10.0.2.2 at 2020-04-07 10:17:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (2.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+Completed 404 Not Found in 19ms (ActiveRecord: 2.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=1):
+  
+app/controllers/todolists_controller.rb:17:in `show'
+Started GET "/todolists/4" for 10.0.2.2 at 2020-04-07 10:17:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mList Load (10.0ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:17
+  Rendering todolists/show.html.erb within layouts/application
+  Rendered todolists/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 209ms (Views: 167.4ms | ActiveRecord: 10.0ms)
+
+
+Started DELETE "/todolists/4" for 10.0.2.2 at 2020-04-07 10:17:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TodolistsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"H+9pTsY9dM8L/A7r1EYh4Y2aWZEYtTUMuUMMjG4a6yA3F/i4a/ukXqK7QQPwbeQmjPWBcnAmthzvUjEx9bNdsQ==", "id"=>"4"}
+  [1m[36mList Load (4.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/todolists_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[36mList Destroy (13.1ms)[0m  [1m[31mDELETE FROM "lists" WHERE "lists"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/todolists_controller.rb:32
+  [1m[35m (30.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/todolists_controller.rb:32
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 47.9ms)
+
+
+  
+Errno::ETXTBSY (Text file busy @ apply2files - /vagrant/aiueo/tmp/uploads/store/90a492f357a53504e81b341c0b68b9fc97ae98b317b60a8e64db78297eb1):
+  
+app/controllers/todolists_controller.rb:32:in `destroy'
